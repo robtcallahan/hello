@@ -1,0 +1,14 @@
+<MediaContainer size="4" allowSync="0" identifier="com.plexapp.plugins.library" mediaTagPrefix="/system/bundle/media/flags/" mediaTagVersion="1591874102" title1="Plex Library">
+    <Directory allowSync="1" art="/:/resources/movie-fanart.jpg" composite="/library/sections/3/composite/1574133624" filters="1" refreshing="0" thumb="/:/resources/movie.png" key="3" type="movie" title="4k Movies" agent="com.plexapp.agents.imdb" scanner="Plex Movie Scanner" language="en" uuid="7788de76-46f0-4d7b-a206-1b0477d4971e" updatedAt="1574133703" createdAt="1562633870" scannedAt="1574133624" content="1" directory="1" contentChangedAt="498521" hidden="0">
+        <Location id="3" path="/media/PlexMedia/4k Movies"/>
+    </Directory>
+    <Directory allowSync="1" art="/:/resources/movie-fanart.jpg" composite="/library/sections/1/composite/1605665253" filters="1" refreshing="0" thumb="/:/resources/movie.png" key="1" type="movie" title="Movies" agent="com.plexapp.agents.imdb" scanner="Plex Movie Scanner" language="en" uuid="bf023920-1a39-46f9-8b1f-cce74436835d" updatedAt="1605665333" createdAt="1561656604" scannedAt="1605665253" content="1" directory="1" contentChangedAt="144116287590671077" hidden="0">
+        <Location id="5" path="/media/PlexMedia/Movies"/>
+    </Directory>
+    <Directory allowSync="1" art="/:/resources/artist-fanart.jpg" composite="/library/sections/4/composite/1589729244" filters="1" refreshing="0" thumb="/:/resources/artist.png" key="4" type="artist" title="Music" agent="tv.plex.agents.music" scanner="Plex Music" language="en" uuid="c5f4e0c1-6cc3-43ed-9f88-878c0d2590a1" updatedAt="1589729732" createdAt="1586816357" scannedAt="1589729244" content="1" directory="1" contentChangedAt="144116287587775550" hidden="0">
+        <Location id="9" path="/media/PlexMedia/Music"/>
+    </Directory>
+    <Directory allowSync="1" art="/:/resources/show-fanart.jpg" composite="/library/sections/2/composite/1593136321" filters="1" refreshing="0" thumb="/:/resources/show.png" key="2" type="show" title="TV Shows" agent="com.plexapp.agents.thetvdb" scanner="Plex Series Scanner" language="en" uuid="f3d9527d-4dfc-4de7-be61-fb1c68da9764" updatedAt="1605677876" createdAt="1561656619" scannedAt="1593136321" content="1" directory="1" contentChangedAt="144116287590685525" hidden="0">
+        <Location id="2" path="/media/PlexMedia/TV Shows"/>
+    </Directory>
+</MediaContainer>
