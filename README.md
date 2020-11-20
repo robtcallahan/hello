@@ -25,7 +25,7 @@ Must more work to do yet.
                 <td style="vertical-align: top;">
                     <div>
                         <a href="https://app.plex.tv/desktop#!/server/203f305accd75f4ee5cdf540254ec3bdd5e219c1/details?key=%2flibrary%2fmetadata%2f14230">
-                            <img height="160" width="680" src="https://10-0-0-39.3a275afe3c6d4c589f6df5e13eedebfb.plex.direct:32400/library/metadata/14230/thumb/1605665337/?X-Plex-Token=fsjhHWNdkBGXGc-zuW5f">
+                            <img height="160" width="100" src="https://10-0-0-39.3a275afe3c6d4c589f6df5e13eedebfb.plex.direct:32400/library/metadata/14230/thumb/1605665337/?X-Plex-Token=fsjhHWNdkBGXGc-zuW5f">
                         </a>
                     </div>
                 </td>
