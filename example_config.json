@@ -1,0 +1,11 @@
+{
+    "plex-server": "plex.local.domain",
+    "plex-port": 32400,
+    "plex-token": "insert_token_here",
+    "mail-from": "billybob@gmail.com",
+    "mail-password": "really-good-pwd",
+    "mail-to": ["user1@gmal.com", "user2@gmail.com"],
+    "remote-server": "app.plex.tv",
+    "remote-server-key": "not-sure-how-to-programmatically-obtain-this",
+    "image-base-url": "https://10-0-0-39.3a275afe3c6d4c589f6df5e13eedebfb.plex.direct:32400"
+}
