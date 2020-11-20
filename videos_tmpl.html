@@ -1,0 +1,54 @@
+{{$PlexToken := .ServerConfig.PlexToken}}
+{{$RemoteServer := .ServerConfig.RemoteServer}}
+{{$RemoteServerKey := .ServerConfig.RemoteServerKey}}
+{{$ImageBaseURL := .ServerConfig.ImageBaseURL}}
+<html>
+    <head>
+        <style>
+            body {
+                font-family: arial,sans-serif;
+                font-size: 14px;
+            }
+            a:link, a:visited, a:hover, a:active {
+                text-decoration: underline;
+                font-weight: bold;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>New Media Titles Added</h3>
+        {{range .Videos}}
+        <div style="margin:20 10 20 10;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div>
+                                <!-- <a href="https://{{$RemoteServer}}:32400/web/index.html#!/server/{{$RemoteServerKey}}/details?key={{.Key}}">
+                                    <img height=160 src="https://{{$RemoteServer}}:32400{{.Thumb}}/?X-Plex-Token={{$PlexToken}}"></img>
+                                </a> -->
+                                <a href="https://{{$RemoteServer}}/desktop#!/server/{{$RemoteServerKey}}/details?key={{.Key}}">
+                                    <img height=160 src="{{$ImageBaseURL}}{{.Thumb}}/?X-Plex-Token={{$PlexToken}}"></img>
+                                </a>
+                            </div>
+                        </td>
+                        <td style="vertical-align: top; padding-left: 10px;">
+                            <a href="https://{{$RemoteServer}}:32400/web/index.html#!/server/{{$RemoteServerKey}}/details?key={{.Key}}">
+                                {{.Title}}
+                            </a>
+                            ({{.Year}})
+                            <div style="margin:10px 0px;">
+                                Rated: {{.ContentRating}} &nbsp; Length: {{.DurationFormatted}} &nbsp; Critical Rating: {{.Rating}}
+                            </div>
+                            <div>
+                                {{.Summary}}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {{end}}
+    </body>
+</html>

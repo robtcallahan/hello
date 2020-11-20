@@ -57,29 +57,40 @@ type Media struct {
 
 // Video ...
 type Video struct {
-	Key                   string     `xml:"key,attr"`
-	Type                  string     `xml:"type,attr"`
-	Studio                string     `xml:"studio,attr"`
-	Title                 string     `xml:"title,attr"`
-	TitleSort             string     `xml:"titleSort,attr"`
-	ContentRating         string     `xml:"contentRating,attr"`
-	Summary               string     `xml:"summary,attr"`
-	Rating                float32    `xml:"rating,attr"`
-	Year                  string     `xml:"year,attr"`
-	Tagline               string     `xml:"tagline,attr"`
-	Duration              int        `xml:"duration,attr"`
+	Key                   string  `xml:"key,attr"`
+	Type                  string  `xml:"type,attr"`
+	Studio                string  `xml:"studio,attr"`
+	Title                 string  `xml:"title,attr"`
+	TitleSort             string  `xml:"titleSort,attr"`
+	ContentRating         string  `xml:"contentRating,attr"`
+	Summary               string  `xml:"summary,attr"`
+	Rating                float32 `xml:"rating,attr"`
+	Year                  string  `xml:"year,attr"`
+	Tagline               string  `xml:"tagline,attr"`
+	Thumb                 string  `xml:"thumb,attr"`
+	Duration              int     `xml:"duration,attr"`
+	DurationFormatted     string
 	OriginallyAvailableAt string     `xml:"originallyAvailableAt,attr"`
-	AddedAt               int        `xml:"addedAt,attr"`
-	UpdatedAt             int        `xml:"updatedAt,attr"`
+	AddedAt               int64      `xml:"addedAt,attr"`
+	UpdatedAt             int64      `xml:"updatedAt,attr"`
 	Media                 Media      `xml:"Media"`
 	Genres                []Genre    `xml:"Genre"`
 	Writers               []Writer   `xml:"Writer"`
 	Directors             []Director `xml:"Director"`
 }
 
+// ServerConfig ...
+type ServerConfig struct {
+	PlexToken       string
+	ImageBaseURL    string
+	RemoteServer    string
+	RemoteServerKey string
+	DetailsBaseURL  string
+}
+
 // MediaContainer ...
 type MediaContainer struct {
-	// XMLName   xml.Name  `xml:"MediaContainer"`
+	ServerConfig     ServerConfig
 	Size             int         `xml:"size,attr"`
 	Title            string      `xml:"title1,attr"`
 	LibrarySectionID int         `xml:"librarySectionID"`
@@ -89,28 +100,28 @@ type MediaContainer struct {
 
 // PlexClient ...
 type PlexClient struct {
-	Server     string
-	Port       int
-	BaseURL    string
-	XPlexToken string
-	MoviesKey  int
-	Client     *http.Client
+	Server    string
+	Port      int
+	BaseURL   string
+	PlexToken string
+	MoviesKey int
+	Client    *http.Client
 }
 
 // NewPlexClient ...
 func NewPlexClient(c *Config) *PlexClient {
 	return &PlexClient{
-		XPlexToken: c.PlexToken,
-		Server:     c.PlexServer,
-		Port:       c.PlexPort,
-		BaseURL:    fmt.Sprintf("http://%s:%d", c.PlexServer, c.PlexPort),
-		Client:     &http.Client{},
+		PlexToken: c.PlexToken,
+		Server:    c.PlexServer,
+		Port:      c.PlexPort,
+		BaseURL:   fmt.Sprintf("http://%s:%d", c.PlexServer, c.PlexPort),
+		Client:    &http.Client{},
 	}
 }
 
 // GetLibraries ...
 func (c *PlexClient) GetLibraries() *MediaContainer {
-	path := fmt.Sprintf("%s/library/sections/?X-Plex-Token=%s", c.BaseURL, c.XPlexToken)
+	path := fmt.Sprintf("%s/library/sections/?X-Plex-Token=%s", c.BaseURL, c.PlexToken)
 	resp := c.get(path)
 
 	var media MediaContainer
@@ -128,7 +139,7 @@ func (c *PlexClient) GetLibraries() *MediaContainer {
 
 // GetMovies ...
 func (c *PlexClient) GetMovies() *MediaContainer {
-	path := fmt.Sprintf("%s/library/sections/%d/all?X-Plex-Token=%s", c.BaseURL, c.MoviesKey, c.XPlexToken)
+	path := fmt.Sprintf("%s/library/sections/%d/all?X-Plex-Token=%s", c.BaseURL, c.MoviesKey, c.PlexToken)
 	resp := c.get(path)
 
 	var media MediaContainer
